@@ -82,4 +82,4 @@ At each level, a random sequence of 5 elements is generated, each element in the
 - if the user manages to complete all levels successfully and also completes level 5, then a very special light show will be shown and the game will reset from level 1.
 
 ### Video
-At this [link]([https://www.youtube.com/shorts/PJK3ZkpNz_I](https://youtu.be/Gh948Cs0SxA)) you can see how the game 3 works.
+At this [link](https://youtu.be/Gh948Cs0SxA) you can see how the game 3 works.
