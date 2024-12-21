@@ -38,4 +38,4 @@ The game continues indefinitely, from whatever state you are in, if you press bu
 ![Game2_FSM](https://github.com/user-attachments/assets/2d1300cb-564a-4d48-9221-c715f757f5f9)
 
 #### Video
-At this [link]() you can see how the game 2 works.
+At this [link](https://www.youtube.com/shorts/PJK3ZkpNz_I) you can see how the game 2 works.
