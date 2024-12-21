@@ -4,6 +4,12 @@ This repository describes three simple projects implemented on the SK-S7G2 Start
 
 ## Game 1: **LEDs in line**
 
+### Game description
+This little game basically shows infinitely how to light up led1, led2 and led3 in a line.
+It's a simple little game.
+
+### Video
+At this [link](https://youtube.com/shorts/yT4yn-zjtw4) you can see how the game 1 works.
 
 ## Game 2: "Forward & Backward**
 
