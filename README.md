@@ -81,6 +81,9 @@ At each level, a random sequence of 5 elements is generated, each element in the
 #### Rule 10
 - if the user manages to complete all levels successfully and also completes level 5, then a very special light show will be shown and the game will reset from level 1.
 
+### Flow chart of game 3
+![Chart_Simon_says_game](https://github.com/user-attachments/assets/db58daef-57ee-46ba-9586-e51f891a5298)
+
 ### Video
 At this [link](https://youtu.be/Gh948Cs0SxA) you can see how the game 3 works.
 
