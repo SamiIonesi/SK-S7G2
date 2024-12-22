@@ -46,7 +46,7 @@ At this [link](https://www.youtube.com/shorts/PJK3ZkpNz_I) you can see how the g
 This game is more complex.
 
 The game has as its physical base on the board two buttons: button1 and button2 and 2 LEDs: led1 and led2. <br>
-The game has 5 difficulty levels: level 1, level 2, level 3, level 4 and level 5. <br>
+The game has 7 difficulty levels: from level 1 to level 7. <br>
 At each level, a random sequence of 5 elements is generated, each element in the sequence can be either led1 or led2. <br>
 
 ### Rules
@@ -70,7 +70,7 @@ At each level, a random sequence of 5 elements is generated, each element in the
 - if the user makes a mistake in the sequence, a light show corresponding to the loss will be shown
 
 #### Rule 7
-- if the user manages to pass a level, then the next level will be more difficult. For example, for level 1, the delay between displaying the LEDs in the sequence is 500 ms, for level 2 it is 400 ms, and for level 1 it is 100 ms.
+- if the user manages to pass a level, then the next level will be more difficult. For example, for level 1, the delay between displaying the LEDs in the sequence is 500 ms, for level 2 it is 400 ms, and for level 5 it is 100 ms.
 
 #### Rule 8
 - for each level, the step from rule 4 is resumed, another sequence will be shown, starting with the first LED generated in the sequence and the process from rule 4 continues until the user manages to finish the level, only that each level has its own difficulty, that is, the delay between displaying the LEDs in the sequence decreases as the level increases
@@ -79,7 +79,7 @@ At each level, a random sequence of 5 elements is generated, each element in the
 - if the user makes a mistake at any time in the game, whether it is at level 1 or 4, the game will reset from level 1
 
 #### Rule 10
-- if the user manages to complete all levels successfully and also completes level 5, then a very special light show will be shown and the game will reset from level 1.
+- if the user manages to complete all levels successfully and also completes level 7, then a very special light show will be shown and the game will reset from level 1.
 
 ### Flow chart of game 3
 ![Chart_Simon_says_game](https://github.com/user-attachments/assets/db58daef-57ee-46ba-9586-e51f891a5298)
