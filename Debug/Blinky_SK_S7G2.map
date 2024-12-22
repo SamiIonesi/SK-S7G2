@@ -345,16 +345,16 @@ Discarded input sections
  .text          0x00000000        0x0 ./src/blinky_thread_entry.o
  .data          0x00000000        0x0 ./src/blinky_thread_entry.o
  .bss           0x00000000        0x0 ./src/blinky_thread_entry.o
- .text.configure_LEDs
-                0x00000000       0x28 ./src/blinky_thread_entry.o
  .text.run_LEDs_in_line
-                0x00000000       0x60 ./src/blinky_thread_entry.o
- .text.aprinde_LED_prin_buton
-                0x00000000       0x70 ./src/blinky_thread_entry.o
- .text.game_over_light_show
-                0x00000000       0x5c ./src/blinky_thread_entry.o
+                0x00000000       0x74 ./src/blinky_thread_entry.o
+ .text.forward_backward
+                0x00000000      0xa20 ./src/blinky_thread_entry.o
  .text.special_victory_light_show
-                0x00000000       0x48 ./src/blinky_thread_entry.o
+                0x00000000       0x18 ./src/blinky_thread_entry.o
+ .text.initialize_random_number_generator
+                0x00000000       0x10 ./src/blinky_thread_entry.o
+ .text.generate_random_sequence
+                0x00000000       0x20 ./src/blinky_thread_entry.o
  .text          0x00000000        0x0 ./src/hal_entry.o
  .data          0x00000000        0x0 ./src/hal_entry.o
  .bss           0x00000000        0x0 ./src/hal_entry.o
@@ -791,7 +791,7 @@ LOAD c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-ar
 LOAD c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libnosys.a
 END GROUP
 
-.text           0x00000000     0x64f8
+.text           0x00000000     0x6594
                 0x00000000                __ROM_Start = .
  *(.vectors)
  .vectors       0x00000000       0x40 ./synergy/ssp/src/bsp/cmsis/Device/RENESAS/S7G2/Source/startup_S7G2.o
@@ -1415,329 +1415,343 @@ END GROUP
  .text.startup.main
                 0x00002d44        0xc ./src/synergy_gen/main.o
                 0x00002d44                main
+ .text.configure_LEDs_as_outputs
+                0x00002d50       0x28 ./src/blinky_thread_entry.o
+                0x00002d50                configure_LEDs_as_outputs
  .text.victory_light_show
-                0x00002d50      0x118 ./src/blinky_thread_entry.o
-                0x00002d50                victory_light_show
- .text.simon_says_two_leds
-                0x00002e68      0x1b8 ./src/blinky_thread_entry.o
-                0x00002e68                simon_says_two_leds
+                0x00002d78       0xcc ./src/blinky_thread_entry.o
+                0x00002d78                victory_light_show
+ .text.game_over_light_show
+                0x00002e44       0x5c ./src/blinky_thread_entry.o
+                0x00002e44                game_over_light_show
+ .text.partial_special_victory_light_show
+                0x00002ea0       0x78 ./src/blinky_thread_entry.o
+                0x00002ea0                partial_special_victory_light_show
+ .text.configure_LEDs_and_Buttons
+                0x00002f18       0x20 ./src/blinky_thread_entry.o
+                0x00002f18                configure_LEDs_and_Buttons
+ .text.set_initial_LEDs_Off
+                0x00002f38       0x28 ./src/blinky_thread_entry.o
+                0x00002f38                set_initial_LEDs_Off
+ .text.simon_says
+                0x00002f60      0x14c ./src/blinky_thread_entry.o
+                0x00002f60                simon_says
  .text.blinky_thread_entry
-                0x00003020        0x8 ./src/blinky_thread_entry.o
-                0x00003020                blinky_thread_entry
+                0x000030ac        0x8 ./src/blinky_thread_entry.o
+                0x000030ac                blinky_thread_entry
  .text.R_FMI_ProductInfoGet
-                0x00003028       0x34 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\driver\r_fmi\libs\libfmi_cm4_s7g2_gcc.a(r_fmi.o)
+                0x000030b4       0x34 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\driver\r_fmi\libs\libfmi_cm4_s7g2_gcc.a(r_fmi.o)
  .text.R_FMI_VersionGet
-                0x0000305c       0x10 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\driver\r_fmi\libs\libfmi_cm4_s7g2_gcc.a(r_fmi.o)
+                0x000030e8       0x10 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\driver\r_fmi\libs\libfmi_cm4_s7g2_gcc.a(r_fmi.o)
  .text.R_FMI_UniqueIdGet
-                0x0000306c       0x40 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\driver\r_fmi\libs\libfmi_cm4_s7g2_gcc.a(r_fmi.o)
+                0x000030f8       0x40 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\driver\r_fmi\libs\libfmi_cm4_s7g2_gcc.a(r_fmi.o)
  .text.R_FMI_EventInfoGet
-                0x000030ac       0x8c C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\driver\r_fmi\libs\libfmi_cm4_s7g2_gcc.a(r_fmi.o)
+                0x00003138       0x8c C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\driver\r_fmi\libs\libfmi_cm4_s7g2_gcc.a(r_fmi.o)
  .text.R_FMI_Init
-                0x00003138       0x90 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\driver\r_fmi\libs\libfmi_cm4_s7g2_gcc.a(r_fmi.o)
+                0x000031c4       0x90 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\driver\r_fmi\libs\libfmi_cm4_s7g2_gcc.a(r_fmi.o)
  .text.R_FMI_FeatureGet
-                0x000031c8      0x238 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\driver\r_fmi\libs\libfmi_cm4_s7g2_gcc.a(r_fmi.o)
+                0x00003254      0x238 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\driver\r_fmi\libs\libfmi_cm4_s7g2_gcc.a(r_fmi.o)
  .text._txe_semaphore_create
-                0x00003400       0xa0 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_create.o)
-                0x00003400                _txe_semaphore_create
+                0x0000348c       0xa0 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_create.o)
+                0x0000348c                _txe_semaphore_create
  .text._txe_semaphore_get
-                0x000034a0       0x2c C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_get.o)
-                0x000034a0                _txe_semaphore_get
+                0x0000352c       0x2c C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_get.o)
+                0x0000352c                _txe_semaphore_get
  .text._txe_semaphore_put
-                0x000034cc       0x18 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_put.o)
-                0x000034cc                _txe_semaphore_put
+                0x00003558       0x18 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_put.o)
+                0x00003558                _txe_semaphore_put
  .text._txe_thread_create
-                0x000034e4      0x14c C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_thread_create.o)
-                0x000034e4                _txe_thread_create
+                0x00003570      0x14c C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_thread_create.o)
+                0x00003570                _txe_thread_create
  .text._tx_initialize_high_level
-                0x00003630       0x70 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_initialize_high_level.o)
-                0x00003630                _tx_initialize_high_level
+                0x000036bc       0x70 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_initialize_high_level.o)
+                0x000036bc                _tx_initialize_high_level
  .text._tx_initialize_kernel_enter
-                0x000036a0       0x48 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_initialize_kernel_enter.o)
-                0x000036a0                _tx_initialize_kernel_enter
+                0x0000372c       0x48 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_initialize_kernel_enter.o)
+                0x0000372c                _tx_initialize_kernel_enter
  .text._tx_semaphore_create
-                0x000036e8       0x54 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_create.o)
-                0x000036e8                _tx_semaphore_create
+                0x00003774       0x54 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_create.o)
+                0x00003774                _tx_semaphore_create
  .text._tx_semaphore_get
-                0x0000373c       0x84 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_get.o)
-                0x0000373c                _tx_semaphore_get
+                0x000037c8       0x84 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_get.o)
+                0x000037c8                _tx_semaphore_get
  .text._tx_semaphore_put
-                0x000037c0       0x54 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_put.o)
-                0x000037c0                _tx_semaphore_put
+                0x0000384c       0x54 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_put.o)
+                0x0000384c                _tx_semaphore_put
  .text._tx_thread_create
-                0x00003814      0x134 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_create.o)
-                0x00003814                _tx_thread_create
+                0x000038a0      0x134 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_create.o)
+                0x000038a0                _tx_thread_create
  .text._tx_thread_initialize
-                0x00003948       0x64 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_initialize.o)
-                0x00003948                _tx_thread_initialize
+                0x000039d4       0x64 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_initialize.o)
+                0x000039d4                _tx_thread_initialize
  .text._tx_thread_shell_entry
-                0x000039ac       0x54 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_shell_entry.o)
-                0x000039ac                _tx_thread_shell_entry
+                0x00003a38       0x54 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_shell_entry.o)
+                0x00003a38                _tx_thread_shell_entry
  .text._tx_thread_system_preempt_check
-                0x00003a00       0x3c C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_preempt_check.o)
-                0x00003a00                _tx_thread_system_preempt_check
+                0x00003a8c       0x3c C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_preempt_check.o)
+                0x00003a8c                _tx_thread_system_preempt_check
  .text._tx_thread_system_resume
-                0x00003a3c       0xec C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_resume.o)
-                0x00003a3c                _tx_thread_system_resume
+                0x00003ac8       0xec C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_resume.o)
+                0x00003ac8                _tx_thread_system_resume
  .text._tx_thread_system_suspend
-                0x00003b28      0x100 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_suspend.o)
-                0x00003b28                _tx_thread_system_suspend
+                0x00003bb4      0x100 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_suspend.o)
+                0x00003bb4                _tx_thread_system_suspend
  .text._tx_thread_timeout
-                0x00003c28       0x30 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_timeout.o)
-                0x00003c28                _tx_thread_timeout
+                0x00003cb4       0x30 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_timeout.o)
+                0x00003cb4                _tx_thread_timeout
  .text._tx_timer_initialize
-                0x00003c58       0x74 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_initialize.o)
-                0x00003c58                _tx_timer_initialize
+                0x00003ce4       0x74 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_initialize.o)
+                0x00003ce4                _tx_timer_initialize
  .text._tx_timer_system_activate
-                0x00003ccc       0x54 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_system_activate.o)
-                0x00003ccc                _tx_timer_system_activate
+                0x00003d58       0x54 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_system_activate.o)
+                0x00003d58                _tx_timer_system_activate
  .text._tx_timer_system_deactivate
-                0x00003d20       0x2c C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_system_deactivate.o)
-                0x00003d20                _tx_timer_system_deactivate
+                0x00003dac       0x2c C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_system_deactivate.o)
+                0x00003dac                _tx_timer_system_deactivate
  .text._tx_initialize_low_level
-                0x00003d4c       0x88 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_initialize_low_level.o)
-                0x00003d4c                _tx_initialize_low_level
+                0x00003dd8       0x88 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_initialize_low_level.o)
+                0x00003dd8                _tx_initialize_low_level
  .text._tx_thread_schedule
-                0x00003dd4       0x60 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_schedule.o)
-                0x00003dd4                _tx_thread_schedule
+                0x00003e60       0x60 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_schedule.o)
+                0x00003e60                _tx_thread_schedule
  .text._tx_port_wait_thread_ready
-                0x00003e34       0xa8 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_schedule.o)
-                0x00003e34                _tx_port_wait_thread_ready
+                0x00003ec0       0xa8 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_schedule.o)
+                0x00003ec0                _tx_port_wait_thread_ready
  .text.PendSV_Handler
-                0x00003edc       0xa8 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_schedule.o)
-                0x00003edc                PendSV_Handler
+                0x00003f68       0xa8 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_schedule.o)
+                0x00003f68                PendSV_Handler
  .text.SysTick_Handler
-                0x00003f84        0x4 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_schedule.o)
-                0x00003f84                SysTick_Handler
+                0x00004010        0x4 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_schedule.o)
+                0x00004010                SysTick_Handler
  .text._tx_thread_stack_build
-                0x00003f88       0x50 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_stack_build.o)
-                0x00003f88                _tx_thread_stack_build
+                0x00004014       0x50 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_stack_build.o)
+                0x00004014                _tx_thread_stack_build
  .text._tx_timer_interrupt
-                0x00003fd8       0xc0 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_interrupt.o)
-                0x00003fd8                _tx_timer_interrupt
+                0x00004064       0xc0 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_interrupt.o)
+                0x00004064                _tx_timer_interrupt
  .text._tx_semaphore_cleanup
-                0x00004098       0x80 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_cleanup.o)
-                0x00004098                _tx_semaphore_cleanup
+                0x00004124       0x80 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_cleanup.o)
+                0x00004124                _tx_semaphore_cleanup
  .text._tx_thread_time_slice
-                0x00004118       0x6c C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_time_slice.o)
-                0x00004118                _tx_thread_time_slice
+                0x000041a4       0x6c C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_time_slice.o)
+                0x000041a4                _tx_thread_time_slice
  .text._tx_timer_expiration_process
-                0x00004184      0x104 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_expiration_process.o)
-                0x00004184                _tx_timer_expiration_process
- .text.__errno  0x00004288        0xc c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-errno.o)
-                0x00004288                __errno
- .text.memcpy   0x00004294       0x1c c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-memcpy-stub.o)
-                0x00004294                memcpy
- .text.memset   0x000042b0       0x10 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-memset.o)
-                0x000042b0                memset
- .text.srand    0x000042c0       0x5c c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-rand.o)
-                0x000042c0                srand
- .text.rand     0x0000431c       0x7c c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-rand.o)
-                0x0000431c                rand
+                0x00004210      0x104 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_expiration_process.o)
+                0x00004210                _tx_timer_expiration_process
+ .text.__errno  0x00004314        0xc c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-errno.o)
+                0x00004314                __errno
+ .text.memcpy   0x00004320       0x1c c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-memcpy-stub.o)
+                0x00004320                memcpy
+ .text.memset   0x0000433c       0x10 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-memset.o)
+                0x0000433c                memset
+ .text.srand    0x0000434c       0x5c c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-rand.o)
+                0x0000434c                srand
+ .text.rand     0x000043a8       0x7c c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-rand.o)
+                0x000043a8                rand
  .text.__assert_func
-                0x00004398       0x3c c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-assert.o)
-                0x00004398                __assert_func
- .text.fprintf  0x000043d4       0x24 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-fprintf.o)
-                0x000043d4                fiprintf
-                0x000043d4                fprintf
- .text.malloc   0x000043f8       0x10 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-malloc.o)
-                0x000043f8                malloc
- .text._free_r  0x00004408       0x98 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-nano-freer.o)
-                0x00004408                _free_r
+                0x00004424       0x3c c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-assert.o)
+                0x00004424                __assert_func
+ .text.fprintf  0x00004460       0x24 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-fprintf.o)
+                0x00004460                fiprintf
+                0x00004460                fprintf
+ .text.malloc   0x00004484       0x10 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-malloc.o)
+                0x00004484                malloc
+ .text._free_r  0x00004494       0x98 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-nano-freer.o)
+                0x00004494                _free_r
  .text.sbrk_aligned
-                0x000044a0       0x40 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-nano-mallocr.o)
+                0x0000452c       0x40 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-nano-mallocr.o)
  .text._malloc_r
-                0x000044e0       0xe8 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-nano-mallocr.o)
-                0x000044e0                _malloc_r
+                0x0000456c       0xe8 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-nano-mallocr.o)
+                0x0000456c                _malloc_r
  .text.__sfputc_r
-                0x000045c8       0x2e c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-nano-vfprintf.o)
+                0x00004654       0x2e c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-nano-vfprintf.o)
  .text.__sfputs_r
-                0x000045f6       0x24 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-nano-vfprintf.o)
-                0x000045f6                __sfputs_r
- *fill*         0x0000461a        0x2 ff
+                0x00004682       0x24 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-nano-vfprintf.o)
+                0x00004682                __sfputs_r
+ *fill*         0x000046a6        0x2 ff
  .text._vfprintf_r
-                0x0000461c      0x260 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-nano-vfprintf.o)
-                0x0000461c                _vfprintf_r
-                0x0000461c                _vfiprintf_r
+                0x000046a8      0x260 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-nano-vfprintf.o)
+                0x000046a8                _vfprintf_r
+                0x000046a8                _vfiprintf_r
  .text._printf_common
-                0x0000487c       0xda c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-nano-vfprintf_i.o)
-                0x0000487c                _printf_common
- *fill*         0x00004956        0x2 ff
+                0x00004908       0xda c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-nano-vfprintf_i.o)
+                0x00004908                _printf_common
+ *fill*         0x000049e2        0x2 ff
  .text._printf_i
-                0x00004958      0x24c c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-nano-vfprintf_i.o)
-                0x00004958                _printf_i
- .text._sbrk_r  0x00004ba4       0x20 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-sbrkr.o)
-                0x00004ba4                _sbrk_r
+                0x000049e4      0x24c c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-nano-vfprintf_i.o)
+                0x000049e4                _printf_i
+ .text._sbrk_r  0x00004c30       0x20 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-sbrkr.o)
+                0x00004c30                _sbrk_r
  .text.__swbuf_r
-                0x00004bc4       0xa4 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-wbuf.o)
-                0x00004bc4                __swbuf_r
+                0x00004c50       0xa4 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-wbuf.o)
+                0x00004c50                __swbuf_r
  .text.__swsetup_r
-                0x00004c68       0xdc c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-wsetup.o)
-                0x00004c68                __swsetup_r
- .text.abort    0x00004d44        0xe c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-abort.o)
-                0x00004d44                abort
- *fill*         0x00004d52        0x2 ff
+                0x00004cf4       0xdc c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-wsetup.o)
+                0x00004cf4                __swsetup_r
+ .text.abort    0x00004dd0        0xe c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-abort.o)
+                0x00004dd0                abort
+ *fill*         0x00004dde        0x2 ff
  .text.__sflush_r
-                0x00004d54      0x10c c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-fflush.o)
-                0x00004d54                __sflush_r
+                0x00004de0      0x10c c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-fflush.o)
+                0x00004de0                __sflush_r
  .text._fflush_r
-                0x00004e60       0x78 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-fflush.o)
-                0x00004e60                _fflush_r
- .text.std      0x00004ed8       0x48 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-findfp.o)
+                0x00004eec       0x78 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-fflush.o)
+                0x00004eec                _fflush_r
+ .text.std      0x00004f64       0x48 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-findfp.o)
  .text._cleanup_r
-                0x00004f20        0xc c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-findfp.o)
-                0x00004f20                _cleanup_r
+                0x00004fac        0xc c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-findfp.o)
+                0x00004fac                _cleanup_r
  .text.__sfmoreglue
-                0x00004f2c       0x2c c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-findfp.o)
-                0x00004f2c                __sfmoreglue
+                0x00004fb8       0x2c c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-findfp.o)
+                0x00004fb8                __sfmoreglue
  .text.__sfp_lock_acquire
-                0x00004f58        0xc c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-findfp.o)
-                0x00004f58                __sfp_lock_acquire
+                0x00004fe4        0xc c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-findfp.o)
+                0x00004fe4                __sfp_lock_acquire
  .text.__sfp_lock_release
-                0x00004f64        0xc c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-findfp.o)
-                0x00004f64                __sfp_lock_release
+                0x00004ff0        0xc c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-findfp.o)
+                0x00004ff0                __sfp_lock_release
  .text.__sinit_lock_acquire
-                0x00004f70        0xc c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-findfp.o)
-                0x00004f70                __sinit_lock_acquire
+                0x00004ffc        0xc c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-findfp.o)
+                0x00004ffc                __sinit_lock_acquire
  .text.__sinit_lock_release
-                0x00004f7c        0xc c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-findfp.o)
-                0x00004f7c                __sinit_lock_release
- .text.__sinit  0x00004f88       0x70 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-findfp.o)
-                0x00004f88                __sinit
- .text.__sfp    0x00004ff8       0x8c c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-findfp.o)
-                0x00004ff8                __sfp
+                0x00005008        0xc c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-findfp.o)
+                0x00005008                __sinit_lock_release
+ .text.__sinit  0x00005014       0x70 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-findfp.o)
+                0x00005014                __sinit
+ .text.__sfp    0x00005084       0x8c c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-findfp.o)
+                0x00005084                __sfp
  .text._fwalk_reent
-                0x00005084       0x3e c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-fwalk.o)
-                0x00005084                _fwalk_reent
+                0x00005110       0x3e c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-fwalk.o)
+                0x00005110                _fwalk_reent
  .text.__retarget_lock_init_recursive
-                0x000050c2        0x2 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-lock.o)
-                0x000050c2                __retarget_lock_init_recursive
+                0x0000514e        0x2 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-lock.o)
+                0x0000514e                __retarget_lock_init_recursive
  .text.__retarget_lock_acquire_recursive
-                0x000050c4        0x2 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-lock.o)
-                0x000050c4                __retarget_lock_acquire_recursive
+                0x00005150        0x2 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-lock.o)
+                0x00005150                __retarget_lock_acquire_recursive
  .text.__retarget_lock_release_recursive
-                0x000050c6        0x2 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-lock.o)
-                0x000050c6                __retarget_lock_release_recursive
+                0x00005152        0x2 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-lock.o)
+                0x00005152                __retarget_lock_release_recursive
  .text.__swhatbuf_r
-                0x000050c8       0x4a c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-makebuf.o)
-                0x000050c8                __swhatbuf_r
- *fill*         0x00005112        0x2 ff
+                0x00005154       0x4a c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-makebuf.o)
+                0x00005154                __swhatbuf_r
+ *fill*         0x0000519e        0x2 ff
  .text.__smakebuf_r
-                0x00005114       0x80 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-makebuf.o)
-                0x00005114                __smakebuf_r
- *fill*         0x00005194        0xc ff
- .text          0x000051a0       0xa0 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-memchr.o)
-                0x000051a0                memchr
+                0x000051a0       0x80 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-makebuf.o)
+                0x000051a0                __smakebuf_r
+ .text          0x00005220       0xa0 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-memchr.o)
+                0x00005220                memchr
  .text.__malloc_lock
-                0x00005240        0xc c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-mlock.o)
-                0x00005240                __malloc_lock
+                0x000052c0        0xc c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-mlock.o)
+                0x000052c0                __malloc_lock
  .text.__malloc_unlock
-                0x0000524c        0xc c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-mlock.o)
-                0x0000524c                __malloc_unlock
+                0x000052cc        0xc c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-mlock.o)
+                0x000052cc                __malloc_unlock
  .text._raise_r
-                0x00005258       0x50 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-signal.o)
-                0x00005258                _raise_r
- .text.raise    0x000052a8       0x10 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-signal.o)
-                0x000052a8                raise
- .text._kill_r  0x000052b8       0x24 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-signalr.o)
-                0x000052b8                _kill_r
+                0x000052d8       0x50 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-signal.o)
+                0x000052d8                _raise_r
+ .text.raise    0x00005328       0x10 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-signal.o)
+                0x00005328                raise
+ .text._kill_r  0x00005338       0x24 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-signalr.o)
+                0x00005338                _kill_r
  .text._getpid_r
-                0x000052dc        0x4 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-signalr.o)
-                0x000052dc                _getpid_r
- .text.__sread  0x000052e0       0x22 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-stdio.o)
-                0x000052e0                __sread
+                0x0000535c        0x4 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-signalr.o)
+                0x0000535c                _getpid_r
+ .text.__sread  0x00005360       0x22 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-stdio.o)
+                0x00005360                __sread
  .text.__swrite
-                0x00005302       0x38 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-stdio.o)
-                0x00005302                __swrite
- .text.__sseek  0x0000533a       0x24 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-stdio.o)
-                0x0000533a                __sseek
+                0x00005382       0x38 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-stdio.o)
+                0x00005382                __swrite
+ .text.__sseek  0x000053ba       0x24 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-stdio.o)
+                0x000053ba                __sseek
  .text.__sclose
-                0x0000535e        0x8 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-stdio.o)
-                0x0000535e                __sclose
- *fill*         0x00005366        0x2 ff
+                0x000053de        0x8 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-stdio.o)
+                0x000053de                __sclose
+ *fill*         0x000053e6        0x2 ff
  .text._write_r
-                0x00005368       0x24 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-writer.o)
-                0x00005368                _write_r
+                0x000053e8       0x24 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-writer.o)
+                0x000053e8                _write_r
  .text._close_r
-                0x0000538c       0x20 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-closer.o)
-                0x0000538c                _close_r
+                0x0000540c       0x20 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-closer.o)
+                0x0000540c                _close_r
  .text._fstat_r
-                0x000053ac       0x24 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-fstatr.o)
-                0x000053ac                _fstat_r
+                0x0000542c       0x24 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-fstatr.o)
+                0x0000542c                _fstat_r
  .text._isatty_r
-                0x000053d0       0x20 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-isattyr.o)
-                0x000053d0                _isatty_r
+                0x00005450       0x20 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-isattyr.o)
+                0x00005450                _isatty_r
  .text._lseek_r
-                0x000053f0       0x24 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-lseekr.o)
-                0x000053f0                _lseek_r
- .text._read_r  0x00005414       0x24 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-readr.o)
-                0x00005414                _read_r
+                0x00005470       0x24 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-lseekr.o)
+                0x00005470                _lseek_r
+ .text._read_r  0x00005494       0x24 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-readr.o)
+                0x00005494                _read_r
  .text.findslot
-                0x00005438       0x34 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-syscalls.o)
- .text.error    0x0000546c       0x1c c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-syscalls.o)
+                0x000054b8       0x34 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-syscalls.o)
+ .text.error    0x000054ec       0x1c c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-syscalls.o)
  .text.checkerror
-                0x00005488        0xa c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-syscalls.o)
+                0x00005508        0xa c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-syscalls.o)
  .text._swiread
-                0x00005492       0x20 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-syscalls.o)
-                0x00005492                _swiread
- .text._read    0x000054b2       0x38 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-syscalls.o)
-                0x000054b2                _read
+                0x00005512       0x20 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-syscalls.o)
+                0x00005512                _swiread
+ .text._read    0x00005532       0x38 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-syscalls.o)
+                0x00005532                _read
  .text._swilseek
-                0x000054ea       0x78 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-syscalls.o)
-                0x000054ea                _swilseek
- .text._lseek   0x00005562        0x4 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-syscalls.o)
-                0x00005562                _lseek
+                0x0000556a       0x78 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-syscalls.o)
+                0x0000556a                _swilseek
+ .text._lseek   0x000055e2        0x4 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-syscalls.o)
+                0x000055e2                _lseek
  .text._swiwrite
-                0x00005566       0x20 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-syscalls.o)
-                0x00005566                _swiwrite
- .text._write   0x00005586       0x48 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-syscalls.o)
-                0x00005586                _write
+                0x000055e6       0x20 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-syscalls.o)
+                0x000055e6                _swiwrite
+ .text._write   0x00005606       0x48 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-syscalls.o)
+                0x00005606                _write
  .text._swiclose
-                0x000055ce       0x1a c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-syscalls.o)
-                0x000055ce                _swiclose
- .text._close   0x000055e8       0x4c c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-syscalls.o)
-                0x000055e8                _close
- .text._getpid  0x00005634        0x4 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-syscalls.o)
-                0x00005634                _getpid
+                0x0000564e       0x1a c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-syscalls.o)
+                0x0000564e                _swiclose
+ .text._close   0x00005668       0x4c c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-syscalls.o)
+                0x00005668                _close
+ .text._getpid  0x000056b4        0x4 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-syscalls.o)
+                0x000056b4                _getpid
  .text._swistat
-                0x00005638       0x42 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-syscalls.o)
-                0x00005638                _swistat
- .text._fstat   0x0000567a       0x1c c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-syscalls.o)
-                0x0000567a                _fstat
- .text._stat    0x00005696       0x3a c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-syscalls.o)
-                0x00005696                _stat
+                0x000056b8       0x42 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-syscalls.o)
+                0x000056b8                _swistat
+ .text._fstat   0x000056fa       0x1c c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-syscalls.o)
+                0x000056fa                _fstat
+ .text._stat    0x00005716       0x3a c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-syscalls.o)
+                0x00005716                _stat
  .text._swiopen
-                0x000056d0       0xb4 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-syscalls.o)
-                0x000056d0                _swiopen
+                0x00005750       0xb4 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-syscalls.o)
+                0x00005750                _swiopen
  .text._get_semihosting_exts
-                0x00005784       0xb8 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-syscalls.o)
-                0x00005784                _get_semihosting_exts
+                0x00005804       0xb8 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-syscalls.o)
+                0x00005804                _get_semihosting_exts
  .text.initialise_semihosting_exts
-                0x0000583c       0x34 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-syscalls.o)
+                0x000058bc       0x34 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-syscalls.o)
  .text._has_ext_exit_extended
-                0x00005870       0x18 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-syscalls.o)
-                0x00005870                _has_ext_exit_extended
- .text._isatty  0x00005888       0x38 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-syscalls.o)
-                0x00005888                _isatty
- .text._exit    0x000058c0       0x14 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-_exit.o)
-                0x000058c0                _exit
+                0x000058f0       0x18 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-syscalls.o)
+                0x000058f0                _has_ext_exit_extended
+ .text._isatty  0x00005908       0x38 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-syscalls.o)
+                0x00005908                _isatty
+ .text._exit    0x00005940       0x14 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-_exit.o)
+                0x00005940                _exit
  .text._kill_shared
-                0x000058d4       0x26 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-_kill.o)
-                0x000058d4                _kill_shared
- *fill*         0x000058fa        0x2 ff
- .text._kill    0x000058fc       0x18 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-_kill.o)
-                0x000058fc                _kill
- .text          0x00005914       0x10 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-strlen.o)
-                0x00005914                strlen
+                0x00005954       0x26 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-_kill.o)
+                0x00005954                _kill_shared
+ *fill*         0x0000597a        0x2 ff
+ .text._kill    0x0000597c       0x18 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-_kill.o)
+                0x0000597c                _kill
+ .text          0x00005994       0x10 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-strlen.o)
+                0x00005994                strlen
  *(.version)
- .version       0x00005924       0x7c ./synergy/ssp/src/bsp/mcu/all/bsp_common.o
+ .version       0x000059a4       0x7c ./synergy/ssp/src/bsp/mcu/all/bsp_common.o
  *(.init)
- .init          0x000059a0        0x4 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crti.o
-                0x000059a0                _init
- .init          0x000059a4        0x8 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtn.o
+ .init          0x00005a20        0x4 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crti.o
+                0x00005a20                _init
+ .init          0x00005a24        0x8 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtn.o
  *(.fini)
- .fini          0x000059ac        0x4 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crti.o
-                0x000059ac                _fini
- .fini          0x000059b0        0x8 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtn.o
+ .fini          0x00005a2c        0x4 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crti.o
+                0x00005a2c                _fini
+ .fini          0x00005a30        0x8 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtn.o
  *crtbegin.o(.ctors)
  *crtbegin?.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o *crtend?.o) .ctors)
@@ -1750,137 +1764,140 @@ END GROUP
  *(.dtors)
  *(.rodata*)
  .rodata.g_ioport_on_ioport
-                0x000059b8       0x3c ./synergy/ssp/src/driver/r_ioport/r_ioport.o
-                0x000059b8                g_ioport_on_ioport
+                0x00005a38       0x3c ./synergy/ssp/src/driver/r_ioport/r_ioport.o
+                0x00005a38                g_ioport_on_ioport
  .rodata.g_elc_on_elc
-                0x000059f4       0x1c ./synergy/ssp/src/driver/r_elc/r_elc.o
-                0x000059f4                g_elc_on_elc
+                0x00005a74       0x1c ./synergy/ssp/src/driver/r_elc/r_elc.o
+                0x00005a74                g_elc_on_elc
  .rodata.g_cgc_on_cgc
-                0x00005a10       0x6c ./synergy/ssp/src/driver/r_cgc/r_cgc.o
-                0x00005a10                g_cgc_on_cgc
+                0x00005a90       0x6c ./synergy/ssp/src/driver/r_cgc/r_cgc.o
+                0x00005a90                g_cgc_on_cgc
  .rodata.g_pllccr2_div_setting
-                0x00005a7c        0x8 ./synergy/ssp/src/driver/r_cgc/r_cgc.o
+                0x00005afc        0x8 ./synergy/ssp/src/driver/r_cgc/r_cgc.o
  .rodata.g_pllccr2_div_value
-                0x00005a84        0x6 ./synergy/ssp/src/driver/r_cgc/r_cgc.o
- *fill*         0x00005a8a        0x2 ff
+                0x00005b04        0x6 ./synergy/ssp/src/driver/r_cgc/r_cgc.o
+ *fill*         0x00005b0a        0x2 ff
  .rodata.g_pllccr_div_setting
-                0x00005a8c        0x6 ./synergy/ssp/src/driver/r_cgc/r_cgc.o
- *fill*         0x00005a92        0x2 ff
+                0x00005b0c        0x6 ./synergy/ssp/src/driver/r_cgc/r_cgc.o
+ *fill*         0x00005b12        0x2 ff
  .rodata.g_pllccr_div_value
-                0x00005a94        0x6 ./synergy/ssp/src/driver/r_cgc/r_cgc.o
- *fill*         0x00005a9a        0x2 ff
+                0x00005b14        0x6 ./synergy/ssp/src/driver/r_cgc/r_cgc.o
+ *fill*         0x00005b1a        0x2 ff
  .rodata.g_cgc_feature
-                0x00005a9c       0x2c ./synergy/ssp/src/bsp/mcu/s7g2/bsp_feature.o
+                0x00005b1c       0x2c ./synergy/ssp/src/bsp/mcu/s7g2/bsp_feature.o
  .rodata.g_bsp_module_stop
-                0x00005ac8       0x46 ./synergy/ssp/src/bsp/mcu/s7g2/bsp_module_stop.o
- *fill*         0x00005b0e        0x2 ff
+                0x00005b48       0x46 ./synergy/ssp/src/bsp/mcu/s7g2/bsp_module_stop.o
+ *fill*         0x00005b8e        0x2 ff
  .rodata.gp_mstp
-                0x00005b10       0x10 ./synergy/ssp/src/bsp/mcu/s7g2/bsp_module_stop.o
+                0x00005b90       0x10 ./synergy/ssp/src/bsp/mcu/s7g2/bsp_module_stop.o
  .rodata.gp_vector_information
-                0x00005b20        0x4 ./synergy/ssp/src/bsp/mcu/all/bsp_irq.o
-                0x00005b20                gp_vector_information
+                0x00005ba0        0x4 ./synergy/ssp/src/bsp/mcu/all/bsp_irq.o
+                0x00005ba0                gp_vector_information
  .rodata.g_prcr_masks
-                0x00005b24        0x6 ./synergy/ssp/src/bsp/mcu/all/bsp_register_protection.o
- *fill*         0x00005b2a        0x2 ff
+                0x00005ba4        0x6 ./synergy/ssp/src/bsp/mcu/all/bsp_register_protection.o
+ *fill*         0x00005baa        0x2 ff
  .rodata.g_elc_cfg
-                0x00005b2c        0xc ./synergy/ssp/src/bsp/cmsis/Device/RENESAS/S7G2/Source/system_S7G2.o
+                0x00005bac        0xc ./synergy/ssp/src/bsp/cmsis/Device/RENESAS/S7G2/Source/system_S7G2.o
  .rodata.blinky_thread_create.str1.4
-                0x00005b38        0xe ./src/synergy_gen/blinky_thread.o
- *fill*         0x00005b46        0x2 ff
+                0x00005bb8        0xe ./src/synergy_gen/blinky_thread.o
+ *fill*         0x00005bc6        0x2 ff
  .rodata.tx_application_define.str1.4
-                0x00005b48       0x14 ./src/synergy_gen/main.o
+                0x00005bc8       0x14 ./src/synergy_gen/main.o
  .rodata.g_bsp_pin_cfg
-                0x00005b5c        0x8 ./src/synergy_gen/pin_data.o
-                0x00005b5c                g_bsp_pin_cfg
+                0x00005bdc        0x8 ./src/synergy_gen/pin_data.o
+                0x00005bdc                g_bsp_pin_cfg
  .rodata.g_bsp_pin_cfg_data
-                0x00005b64      0x370 ./src/synergy_gen/pin_data.o
-                0x00005b64                g_bsp_pin_cfg_data
+                0x00005be4      0x370 ./src/synergy_gen/pin_data.o
+                0x00005be4                g_bsp_pin_cfg_data
+ .rodata.difficulty_delays
+                0x00005f54       0x1c ./src/blinky_thread_entry.o
+                0x00005f54                difficulty_delays
  .rodata.bit_count
-                0x00005ed4       0x80 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\driver\r_fmi\libs\libfmi_cm4_s7g2_gcc.a(r_fmi.o)
+                0x00005f70       0x80 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\driver\r_fmi\libs\libfmi_cm4_s7g2_gcc.a(r_fmi.o)
  .rodata.bit_count_mask
-                0x00005f54        0x8 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\driver\r_fmi\libs\libfmi_cm4_s7g2_gcc.a(r_fmi.o)
+                0x00005ff0        0x8 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\driver\r_fmi\libs\libfmi_cm4_s7g2_gcc.a(r_fmi.o)
  .rodata.g_fmi_on_fmi
-                0x00005f5c       0x18 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\driver\r_fmi\libs\libfmi_cm4_s7g2_gcc.a(r_fmi.o)
-                0x00005f5c                g_fmi_on_fmi
+                0x00005ff8       0x18 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\driver\r_fmi\libs\libfmi_cm4_s7g2_gcc.a(r_fmi.o)
+                0x00005ff8                g_fmi_on_fmi
  .rodata.g_fmi_data
-                0x00005f74      0x400 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\bsp\mcu\s7g2\libfmi_R7FS7G27H3A01CFC_gcc.a(bsp_fmi_R7FS7G27H3A01CFC.o)
-                0x00005f74                g_fmi_data
+                0x00006010      0x400 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\bsp\mcu\s7g2\libfmi_R7FS7G27H3A01CFC_gcc.a(bsp_fmi_R7FS7G27H3A01CFC.o)
+                0x00006010                g_fmi_data
  .rodata._global_impure_ptr
-                0x00006374        0x4 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-impure.o)
-                0x00006374                _global_impure_ptr
+                0x00006410        0x4 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-impure.o)
+                0x00006410                _global_impure_ptr
  .rodata.srand.str1.1
-                0x00006378       0x95 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-rand.o)
+                0x00006414       0x95 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-rand.o)
  .rodata.__assert_func.str1.1
-                0x0000640d       0x3c c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-assert.o)
+                0x000064a9       0x3c c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-assert.o)
                                  0x3d (size before relaxing)
  .rodata._vfprintf_r.str1.1
-                0x00006449       0x11 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-nano-vfprintf.o)
+                0x000064e5       0x11 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-nano-vfprintf.o)
  .rodata._printf_i.str1.1
-                0x0000645a       0x22 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-nano-vfprintf_i.o)
+                0x000064f6       0x22 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-nano-vfprintf_i.o)
  .rodata.__sf_fake_stderr
-                0x0000647c       0x20 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-findfp.o)
-                0x0000647c                __sf_fake_stderr
+                0x00006518       0x20 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-findfp.o)
+                0x00006518                __sf_fake_stderr
  .rodata.__sf_fake_stdin
-                0x0000649c       0x20 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-findfp.o)
-                0x0000649c                __sf_fake_stdin
+                0x00006538       0x20 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-findfp.o)
+                0x00006538                __sf_fake_stdin
  .rodata.__sf_fake_stdout
-                0x000064bc       0x20 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-findfp.o)
-                0x000064bc                __sf_fake_stdout
+                0x00006558       0x20 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-findfp.o)
+                0x00006558                __sf_fake_stdout
  .rodata._get_semihosting_exts.str1.1
-                0x000064dc       0x16 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-syscalls.o)
-                0x000064f2                __usb_dev_descriptor_start_fs = .
+                0x00006578       0x16 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-syscalls.o)
+                0x0000658e                __usb_dev_descriptor_start_fs = .
  *(.usb_device_desc_fs*)
-                0x000064f2                __usb_cfg_descriptor_start_fs = .
+                0x0000658e                __usb_cfg_descriptor_start_fs = .
  *(.usb_config_desc_fs*)
-                0x000064f2                __usb_interface_descriptor_start_fs = .
+                0x0000658e                __usb_interface_descriptor_start_fs = .
  *(.usb_interface_desc_fs*)
-                0x000064f2                __usb_descriptor_end_fs = .
-                0x000064f2                __usb_dev_descriptor_start_hs = .
+                0x0000658e                __usb_descriptor_end_fs = .
+                0x0000658e                __usb_dev_descriptor_start_hs = .
  *(.usb_device_desc_hs*)
-                0x000064f2                __usb_cfg_descriptor_start_hs = .
+                0x0000658e                __usb_cfg_descriptor_start_hs = .
  *(.usb_config_desc_hs*)
-                0x000064f2                __usb_interface_descriptor_start_hs = .
+                0x0000658e                __usb_interface_descriptor_start_hs = .
  *(.usb_interface_desc_hs*)
-                0x000064f2                __usb_descriptor_end_hs = .
+                0x0000658e                __usb_descriptor_end_hs = .
  *(.eh_frame*)
- *fill*         0x000064f2        0x2 ff
- .eh_frame      0x000064f4        0x0 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
- .eh_frame      0x000064f4        0x4 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtend.o
-                0x000064f8                __ROM_End = .
+ *fill*         0x0000658e        0x2 ff
+ .eh_frame      0x00006590        0x0 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .eh_frame      0x00006590        0x4 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtend.o
+                0x00006594                __ROM_End = .
                 0x00000040                __Vectors_Size = (__Vectors_End - __Vectors)
                 0x00000000                __Vector_Info_Size = (__Vector_Info_End - __Vector_Info_Start)
                 0x000001b0                __Lock_Lookup_Size = (__Lock_Lookup_End - __Lock_Lookup_Start)
 
-.glue_7         0x000064f8        0x0
- .glue_7        0x000064f8        0x0 linker stubs
+.glue_7         0x00006594        0x0
+ .glue_7        0x00006594        0x0 linker stubs
 
-.glue_7t        0x000064f8        0x0
- .glue_7t       0x000064f8        0x0 linker stubs
+.glue_7t        0x00006594        0x0
+ .glue_7t       0x00006594        0x0 linker stubs
 
-.vfp11_veneer   0x000064f8        0x0
- .vfp11_veneer  0x000064f8        0x0 linker stubs
+.vfp11_veneer   0x00006594        0x0
+ .vfp11_veneer  0x00006594        0x0 linker stubs
 
-.v4_bx          0x000064f8        0x0
- .v4_bx         0x000064f8        0x0 linker stubs
+.v4_bx          0x00006594        0x0
+ .v4_bx         0x00006594        0x0 linker stubs
 
-.iplt           0x000064f8        0x0
- .iplt          0x000064f8        0x0 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+.iplt           0x00006594        0x0
+ .iplt          0x00006594        0x0 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x000064f8                __exidx_start = .
+                0x00006594                __exidx_start = .
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x000064f8                __exidx_end = .
-                0x000064f8                __etext = .
+                0x00006594                __exidx_end = .
+                0x00006594                __etext = .
 
 .ssp_dtc_vector_table
                 0x1ffe0000        0x0
                 0x1ffe0000                . = ORIGIN (RAM)
  *(.ssp_dtc_vector_table)
 
-.data           0x1ffe0000       0xe8 load address 0x000064f8
+.data           0x1ffe0000       0xe8 load address 0x00006594
                 0x1ffe0000                __data_start__ = .
  *(vtable)
  *(.data*)
@@ -2249,7 +2266,7 @@ END GROUP
                 0x1ffe00e8                __data_end__ = .
                 0x0000006c                __Lock_Size = (__Lock_End - __Lock_Start)
 
-.igot.plt       0x1ffe00e8        0x0 load address 0x000065e0
+.igot.plt       0x1ffe00e8        0x0 load address 0x0000667c
  .igot.plt      0x1ffe00e8        0x0 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
 
 .qspi_flash     0x60000000        0x0
@@ -2257,10 +2274,10 @@ END GROUP
  *(.qspi_flash*)
                 0x60000000                __qspi_flash_end__ = .
                 0x00000000                __qspi_flash_code_size__ = (__qspi_flash_end__ - __qspi_flash_start__)
-                0x000065e0                __qspi_flash_code_addr__ = (__etext + (__data_end__ - __data_start__))
+                0x0000667c                __qspi_flash_code_addr__ = (__etext + (__data_end__ - __data_start__))
 
 .qspi_non_retentive
-                0x60000000        0x0 load address 0x000065e0
+                0x60000000        0x0 load address 0x0000667c
                 0x60000000                __qspi_non_retentive_start__ = .
  *(.qspi_non_retentive*)
                 0x60000000                __qspi_non_retentive_end__ = .
@@ -2761,7 +2778,7 @@ LOAD linker stubs
  .comment       0x00000049       0x4a C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_expiration_process.o)
  .comment       0x00000049       0x4a C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\bsp\mcu\s7g2\libfmi_R7FS7G27H3A01CFC_gcc.a(bsp_fmi_R7FS7G27H3A01CFC.o)
 
-.debug_info     0x00000000    0x4055c
+.debug_info     0x00000000    0x4139c
  .debug_info    0x00000000    0x10aa9 ./synergy/ssp/src/driver/r_ioport/r_ioport.o
  .debug_info    0x00010aa9     0x2262 ./synergy/ssp/src/driver/r_elc/r_elc.o
  .debug_info    0x00012d0b     0x83a3 ./synergy/ssp/src/driver/r_cgc/r_cgc.o
@@ -2787,35 +2804,35 @@ LOAD linker stubs
  .debug_info    0x0003092e       0xa6 ./src/synergy_gen/hal_data.o
  .debug_info    0x000309d4      0x8bb ./src/synergy_gen/main.o
  .debug_info    0x0003128f      0x989 ./src/synergy_gen/pin_data.o
- .debug_info    0x00031c18     0x1b33 ./src/blinky_thread_entry.o
- .debug_info    0x0003374b      0x7d8 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_create.o)
- .debug_info    0x00033f23      0x5b5 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_get.o)
- .debug_info    0x000344d8      0x540 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_put.o)
- .debug_info    0x00034a18      0x840 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_thread_create.o)
- .debug_info    0x00035258      0x98e C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_initialize_high_level.o)
- .debug_info    0x00035be6      0x12a C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_initialize_kernel_enter.o)
- .debug_info    0x00035d10      0x660 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_create.o)
- .debug_info    0x00036370      0x6f2 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_get.o)
- .debug_info    0x00036a62      0x6a3 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_put.o)
- .debug_info    0x00037105      0x886 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_create.o)
- .debug_info    0x0003798b      0x676 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_initialize.o)
- .debug_info    0x00038001      0x679 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_shell_entry.o)
- .debug_info    0x0003867a      0x7ff C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_preempt_check.o)
- .debug_info    0x00038e79      0x9a3 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_resume.o)
- .debug_info    0x0003981c      0x9f4 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_suspend.o)
- .debug_info    0x0003a210      0x60e C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_timeout.o)
- .debug_info    0x0003a81e      0x340 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_initialize.o)
- .debug_info    0x0003ab5e      0x1e3 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_system_activate.o)
- .debug_info    0x0003ad41      0x183 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_system_deactivate.o)
- .debug_info    0x0003aec4      0x77d C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_initialize_low_level.o)
- .debug_info    0x0003b641     0x32a2 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_schedule.o)
- .debug_info    0x0003e8e3      0x49b C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_stack_build.o)
- .debug_info    0x0003ed7e      0x728 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_interrupt.o)
- .debug_info    0x0003f4a6      0x700 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_cleanup.o)
- .debug_info    0x0003fba6      0x5c2 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_time_slice.o)
- .debug_info    0x00040168      0x3f4 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_expiration_process.o)
+ .debug_info    0x00031c18     0x2973 ./src/blinky_thread_entry.o
+ .debug_info    0x0003458b      0x7d8 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_create.o)
+ .debug_info    0x00034d63      0x5b5 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_get.o)
+ .debug_info    0x00035318      0x540 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_put.o)
+ .debug_info    0x00035858      0x840 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_thread_create.o)
+ .debug_info    0x00036098      0x98e C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_initialize_high_level.o)
+ .debug_info    0x00036a26      0x12a C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_initialize_kernel_enter.o)
+ .debug_info    0x00036b50      0x660 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_create.o)
+ .debug_info    0x000371b0      0x6f2 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_get.o)
+ .debug_info    0x000378a2      0x6a3 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_put.o)
+ .debug_info    0x00037f45      0x886 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_create.o)
+ .debug_info    0x000387cb      0x676 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_initialize.o)
+ .debug_info    0x00038e41      0x679 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_shell_entry.o)
+ .debug_info    0x000394ba      0x7ff C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_preempt_check.o)
+ .debug_info    0x00039cb9      0x9a3 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_resume.o)
+ .debug_info    0x0003a65c      0x9f4 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_suspend.o)
+ .debug_info    0x0003b050      0x60e C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_timeout.o)
+ .debug_info    0x0003b65e      0x340 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_initialize.o)
+ .debug_info    0x0003b99e      0x1e3 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_system_activate.o)
+ .debug_info    0x0003bb81      0x183 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_system_deactivate.o)
+ .debug_info    0x0003bd04      0x77d C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_initialize_low_level.o)
+ .debug_info    0x0003c481     0x32a2 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_schedule.o)
+ .debug_info    0x0003f723      0x49b C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_stack_build.o)
+ .debug_info    0x0003fbbe      0x728 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_interrupt.o)
+ .debug_info    0x000402e6      0x700 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_cleanup.o)
+ .debug_info    0x000409e6      0x5c2 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_time_slice.o)
+ .debug_info    0x00040fa8      0x3f4 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_expiration_process.o)
 
-.debug_abbrev   0x00000000     0x63f2
+.debug_abbrev   0x00000000     0x6518
  .debug_abbrev  0x00000000      0x553 ./synergy/ssp/src/driver/r_ioport/r_ioport.o
  .debug_abbrev  0x00000553      0x358 ./synergy/ssp/src/driver/r_elc/r_elc.o
  .debug_abbrev  0x000008ab      0x635 ./synergy/ssp/src/driver/r_cgc/r_cgc.o
@@ -2841,35 +2858,35 @@ LOAD linker stubs
  .debug_abbrev  0x000035c9       0x67 ./src/synergy_gen/hal_data.o
  .debug_abbrev  0x00003630      0x1b1 ./src/synergy_gen/main.o
  .debug_abbrev  0x000037e1      0x104 ./src/synergy_gen/pin_data.o
- .debug_abbrev  0x000038e5      0x289 ./src/blinky_thread_entry.o
- .debug_abbrev  0x00003b6e      0x206 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_create.o)
- .debug_abbrev  0x00003d74      0x153 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_get.o)
- .debug_abbrev  0x00003ec7       0xec C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_put.o)
- .debug_abbrev  0x00003fb3      0x1da C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_thread_create.o)
- .debug_abbrev  0x0000418d      0x10c C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_initialize_high_level.o)
- .debug_abbrev  0x00004299       0xc8 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_initialize_kernel_enter.o)
- .debug_abbrev  0x00004361      0x198 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_create.o)
- .debug_abbrev  0x000044f9      0x1bb C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_get.o)
- .debug_abbrev  0x000046b4      0x1af C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_put.o)
- .debug_abbrev  0x00004863      0x20e C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_create.o)
- .debug_abbrev  0x00004a71      0x123 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_initialize.o)
- .debug_abbrev  0x00004b94      0x1b7 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_shell_entry.o)
- .debug_abbrev  0x00004d4b      0x1e9 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_preempt_check.o)
- .debug_abbrev  0x00004f34      0x22f C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_resume.o)
- .debug_abbrev  0x00005163      0x23a C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_suspend.o)
- .debug_abbrev  0x0000539d      0x1af C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_timeout.o)
- .debug_abbrev  0x0000554c      0x102 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_initialize.o)
- .debug_abbrev  0x0000564e       0xd5 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_system_activate.o)
- .debug_abbrev  0x00005723       0xc2 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_system_deactivate.o)
- .debug_abbrev  0x000057e5      0x1e5 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_initialize_low_level.o)
- .debug_abbrev  0x000059ca      0x2be C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_schedule.o)
- .debug_abbrev  0x00005c88       0xbc C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_stack_build.o)
- .debug_abbrev  0x00005d44      0x13d C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_interrupt.o)
- .debug_abbrev  0x00005e81      0x1e0 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_cleanup.o)
- .debug_abbrev  0x00006061      0x1a5 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_time_slice.o)
- .debug_abbrev  0x00006206      0x1ec C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_expiration_process.o)
+ .debug_abbrev  0x000038e5      0x3af ./src/blinky_thread_entry.o
+ .debug_abbrev  0x00003c94      0x206 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_create.o)
+ .debug_abbrev  0x00003e9a      0x153 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_get.o)
+ .debug_abbrev  0x00003fed       0xec C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_put.o)
+ .debug_abbrev  0x000040d9      0x1da C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_thread_create.o)
+ .debug_abbrev  0x000042b3      0x10c C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_initialize_high_level.o)
+ .debug_abbrev  0x000043bf       0xc8 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_initialize_kernel_enter.o)
+ .debug_abbrev  0x00004487      0x198 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_create.o)
+ .debug_abbrev  0x0000461f      0x1bb C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_get.o)
+ .debug_abbrev  0x000047da      0x1af C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_put.o)
+ .debug_abbrev  0x00004989      0x20e C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_create.o)
+ .debug_abbrev  0x00004b97      0x123 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_initialize.o)
+ .debug_abbrev  0x00004cba      0x1b7 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_shell_entry.o)
+ .debug_abbrev  0x00004e71      0x1e9 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_preempt_check.o)
+ .debug_abbrev  0x0000505a      0x22f C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_resume.o)
+ .debug_abbrev  0x00005289      0x23a C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_suspend.o)
+ .debug_abbrev  0x000054c3      0x1af C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_timeout.o)
+ .debug_abbrev  0x00005672      0x102 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_initialize.o)
+ .debug_abbrev  0x00005774       0xd5 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_system_activate.o)
+ .debug_abbrev  0x00005849       0xc2 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_system_deactivate.o)
+ .debug_abbrev  0x0000590b      0x1e5 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_initialize_low_level.o)
+ .debug_abbrev  0x00005af0      0x2be C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_schedule.o)
+ .debug_abbrev  0x00005dae       0xbc C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_stack_build.o)
+ .debug_abbrev  0x00005e6a      0x13d C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_interrupt.o)
+ .debug_abbrev  0x00005fa7      0x1e0 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_cleanup.o)
+ .debug_abbrev  0x00006187      0x1a5 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_time_slice.o)
+ .debug_abbrev  0x0000632c      0x1ec C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_expiration_process.o)
 
-.debug_loc      0x00000000     0x92d5
+.debug_loc      0x00000000     0x9f60
  .debug_loc     0x00000000     0x20cf ./synergy/ssp/src/driver/r_ioport/r_ioport.o
  .debug_loc     0x000020cf      0x2d1 ./synergy/ssp/src/driver/r_elc/r_elc.o
  .debug_loc     0x000023a0     0x3435 ./synergy/ssp/src/driver/r_cgc/r_cgc.o
@@ -2888,29 +2905,29 @@ LOAD linker stubs
  .debug_loc     0x00006efd      0x228 ./synergy/board/s7g2_sk/bsp_qspi.o
  .debug_loc     0x00007125       0x3a ./src/synergy_gen/blinky_thread.o
  .debug_loc     0x0000715f       0x83 ./src/synergy_gen/main.o
- .debug_loc     0x000071e2      0x287 ./src/blinky_thread_entry.o
- .debug_loc     0x00007469      0x29e C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_create.o)
- .debug_loc     0x00007707       0xd8 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_get.o)
- .debug_loc     0x000077df       0x42 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_put.o)
- .debug_loc     0x00007821      0x551 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_thread_create.o)
- .debug_loc     0x00007d72      0x134 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_create.o)
- .debug_loc     0x00007ea6      0x1de C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_get.o)
- .debug_loc     0x00008084      0x16d C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_put.o)
- .debug_loc     0x000081f1      0x31e C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_create.o)
- .debug_loc     0x0000850f       0xe6 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_shell_entry.o)
- .debug_loc     0x000085f5       0xaf C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_preempt_check.o)
- .debug_loc     0x000086a4      0x1ed C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_resume.o)
- .debug_loc     0x00008891      0x290 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_suspend.o)
- .debug_loc     0x00008b21      0x14b C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_timeout.o)
- .debug_loc     0x00008c6c       0xcd C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_system_activate.o)
- .debug_loc     0x00008d39       0x75 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_system_deactivate.o)
- .debug_loc     0x00008dae       0xd8 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_initialize_low_level.o)
- .debug_loc     0x00008e86       0x2a C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_schedule.o)
- .debug_loc     0x00008eb0      0x1e3 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_cleanup.o)
- .debug_loc     0x00009093       0x83 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_time_slice.o)
- .debug_loc     0x00009116      0x1bf C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_expiration_process.o)
+ .debug_loc     0x000071e2      0xf12 ./src/blinky_thread_entry.o
+ .debug_loc     0x000080f4      0x29e C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_create.o)
+ .debug_loc     0x00008392       0xd8 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_get.o)
+ .debug_loc     0x0000846a       0x42 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_put.o)
+ .debug_loc     0x000084ac      0x551 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_thread_create.o)
+ .debug_loc     0x000089fd      0x134 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_create.o)
+ .debug_loc     0x00008b31      0x1de C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_get.o)
+ .debug_loc     0x00008d0f      0x16d C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_put.o)
+ .debug_loc     0x00008e7c      0x31e C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_create.o)
+ .debug_loc     0x0000919a       0xe6 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_shell_entry.o)
+ .debug_loc     0x00009280       0xaf C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_preempt_check.o)
+ .debug_loc     0x0000932f      0x1ed C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_resume.o)
+ .debug_loc     0x0000951c      0x290 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_suspend.o)
+ .debug_loc     0x000097ac      0x14b C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_timeout.o)
+ .debug_loc     0x000098f7       0xcd C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_system_activate.o)
+ .debug_loc     0x000099c4       0x75 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_system_deactivate.o)
+ .debug_loc     0x00009a39       0xd8 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_initialize_low_level.o)
+ .debug_loc     0x00009b11       0x2a C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_schedule.o)
+ .debug_loc     0x00009b3b      0x1e3 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_cleanup.o)
+ .debug_loc     0x00009d1e       0x83 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_time_slice.o)
+ .debug_loc     0x00009da1      0x1bf C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_expiration_process.o)
 
-.debug_aranges  0x00000000      0x9d8
+.debug_aranges  0x00000000      0xa00
  .debug_aranges
                 0x00000000       0x98 ./synergy/ssp/src/driver/r_ioport/r_ioport.o
  .debug_aranges
@@ -2962,61 +2979,61 @@ LOAD linker stubs
  .debug_aranges
                 0x00000610       0x18 ./src/synergy_gen/pin_data.o
  .debug_aranges
-                0x00000628       0x58 ./src/blinky_thread_entry.o
+                0x00000628       0x80 ./src/blinky_thread_entry.o
  .debug_aranges
-                0x00000680       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_create.o)
+                0x000006a8       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_create.o)
  .debug_aranges
-                0x000006a0       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_get.o)
+                0x000006c8       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_get.o)
  .debug_aranges
-                0x000006c0       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_put.o)
+                0x000006e8       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_put.o)
  .debug_aranges
-                0x000006e0       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_thread_create.o)
+                0x00000708       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_thread_create.o)
  .debug_aranges
-                0x00000700       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_initialize_high_level.o)
+                0x00000728       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_initialize_high_level.o)
  .debug_aranges
-                0x00000720       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_initialize_kernel_enter.o)
+                0x00000748       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_initialize_kernel_enter.o)
  .debug_aranges
-                0x00000740       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_create.o)
+                0x00000768       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_create.o)
  .debug_aranges
-                0x00000760       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_get.o)
+                0x00000788       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_get.o)
  .debug_aranges
-                0x00000780       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_put.o)
+                0x000007a8       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_put.o)
  .debug_aranges
-                0x000007a0       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_create.o)
+                0x000007c8       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_create.o)
  .debug_aranges
-                0x000007c0       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_initialize.o)
+                0x000007e8       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_initialize.o)
  .debug_aranges
-                0x000007e0       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_shell_entry.o)
+                0x00000808       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_shell_entry.o)
  .debug_aranges
-                0x00000800       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_preempt_check.o)
+                0x00000828       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_preempt_check.o)
  .debug_aranges
-                0x00000820       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_resume.o)
+                0x00000848       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_resume.o)
  .debug_aranges
-                0x00000840       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_suspend.o)
+                0x00000868       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_suspend.o)
  .debug_aranges
-                0x00000860       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_timeout.o)
+                0x00000888       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_timeout.o)
  .debug_aranges
-                0x00000880       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_initialize.o)
+                0x000008a8       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_initialize.o)
  .debug_aranges
-                0x000008a0       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_system_activate.o)
+                0x000008c8       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_system_activate.o)
  .debug_aranges
-                0x000008c0       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_system_deactivate.o)
+                0x000008e8       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_system_deactivate.o)
  .debug_aranges
-                0x000008e0       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_initialize_low_level.o)
+                0x00000908       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_initialize_low_level.o)
  .debug_aranges
-                0x00000900       0x38 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_schedule.o)
+                0x00000928       0x38 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_schedule.o)
  .debug_aranges
-                0x00000938       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_stack_build.o)
+                0x00000960       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_stack_build.o)
  .debug_aranges
-                0x00000958       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_interrupt.o)
+                0x00000980       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_interrupt.o)
  .debug_aranges
-                0x00000978       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_cleanup.o)
+                0x000009a0       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_cleanup.o)
  .debug_aranges
-                0x00000998       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_time_slice.o)
+                0x000009c0       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_time_slice.o)
  .debug_aranges
-                0x000009b8       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_expiration_process.o)
+                0x000009e0       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_expiration_process.o)
 
-.debug_ranges   0x00000000     0x22b0
+.debug_ranges   0x00000000     0x22a0
  .debug_ranges  0x00000000      0x608 ./synergy/ssp/src/driver/r_ioport/r_ioport.o
  .debug_ranges  0x00000608       0xf8 ./synergy/ssp/src/driver/r_elc/r_elc.o
  .debug_ranges  0x00000700      0xfb8 ./synergy/ssp/src/driver/r_cgc/r_cgc.o
@@ -3039,35 +3056,35 @@ LOAD linker stubs
  .debug_ranges  0x00001d20       0x10 ./src/synergy_gen/common_data.o
  .debug_ranges  0x00001d30       0x10 ./src/synergy_gen/hal_data.o
  .debug_ranges  0x00001d40       0x48 ./src/synergy_gen/main.o
- .debug_ranges  0x00001d88      0x140 ./src/blinky_thread_entry.o
- .debug_ranges  0x00001ec8       0x40 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_create.o)
- .debug_ranges  0x00001f08       0x10 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_get.o)
- .debug_ranges  0x00001f18       0x10 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_put.o)
- .debug_ranges  0x00001f28       0x10 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_thread_create.o)
- .debug_ranges  0x00001f38       0x10 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_initialize_high_level.o)
- .debug_ranges  0x00001f48       0x10 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_initialize_kernel_enter.o)
- .debug_ranges  0x00001f58       0x10 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_create.o)
- .debug_ranges  0x00001f68       0x40 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_get.o)
- .debug_ranges  0x00001fa8       0x40 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_put.o)
- .debug_ranges  0x00001fe8       0x28 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_create.o)
- .debug_ranges  0x00002010       0x10 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_initialize.o)
- .debug_ranges  0x00002020       0x28 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_shell_entry.o)
- .debug_ranges  0x00002048       0x10 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_preempt_check.o)
- .debug_ranges  0x00002058       0x40 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_resume.o)
- .debug_ranges  0x00002098       0x10 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_suspend.o)
- .debug_ranges  0x000020a8       0x10 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_timeout.o)
- .debug_ranges  0x000020b8       0x10 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_initialize.o)
- .debug_ranges  0x000020c8       0x10 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_system_activate.o)
- .debug_ranges  0x000020d8       0x10 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_system_deactivate.o)
- .debug_ranges  0x000020e8       0x90 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_initialize_low_level.o)
- .debug_ranges  0x00002178       0x40 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_schedule.o)
- .debug_ranges  0x000021b8       0x10 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_stack_build.o)
- .debug_ranges  0x000021c8       0x10 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_interrupt.o)
- .debug_ranges  0x000021d8       0x40 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_cleanup.o)
- .debug_ranges  0x00002218       0x28 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_time_slice.o)
- .debug_ranges  0x00002240       0x70 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_expiration_process.o)
+ .debug_ranges  0x00001d88      0x130 ./src/blinky_thread_entry.o
+ .debug_ranges  0x00001eb8       0x40 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_create.o)
+ .debug_ranges  0x00001ef8       0x10 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_get.o)
+ .debug_ranges  0x00001f08       0x10 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_put.o)
+ .debug_ranges  0x00001f18       0x10 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_thread_create.o)
+ .debug_ranges  0x00001f28       0x10 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_initialize_high_level.o)
+ .debug_ranges  0x00001f38       0x10 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_initialize_kernel_enter.o)
+ .debug_ranges  0x00001f48       0x10 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_create.o)
+ .debug_ranges  0x00001f58       0x40 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_get.o)
+ .debug_ranges  0x00001f98       0x40 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_put.o)
+ .debug_ranges  0x00001fd8       0x28 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_create.o)
+ .debug_ranges  0x00002000       0x10 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_initialize.o)
+ .debug_ranges  0x00002010       0x28 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_shell_entry.o)
+ .debug_ranges  0x00002038       0x10 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_preempt_check.o)
+ .debug_ranges  0x00002048       0x40 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_resume.o)
+ .debug_ranges  0x00002088       0x10 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_suspend.o)
+ .debug_ranges  0x00002098       0x10 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_timeout.o)
+ .debug_ranges  0x000020a8       0x10 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_initialize.o)
+ .debug_ranges  0x000020b8       0x10 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_system_activate.o)
+ .debug_ranges  0x000020c8       0x10 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_system_deactivate.o)
+ .debug_ranges  0x000020d8       0x90 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_initialize_low_level.o)
+ .debug_ranges  0x00002168       0x40 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_schedule.o)
+ .debug_ranges  0x000021a8       0x10 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_stack_build.o)
+ .debug_ranges  0x000021b8       0x10 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_interrupt.o)
+ .debug_ranges  0x000021c8       0x40 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_cleanup.o)
+ .debug_ranges  0x00002208       0x28 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_time_slice.o)
+ .debug_ranges  0x00002230       0x70 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_expiration_process.o)
 
-.debug_line     0x00000000     0xe203
+.debug_line     0x00000000     0xeb3a
  .debug_line    0x00000000     0x15a7 ./synergy/ssp/src/driver/r_ioport/r_ioport.o
  .debug_line    0x000015a7      0x716 ./synergy/ssp/src/driver/r_elc/r_elc.o
  .debug_line    0x00001cbd     0x2f8c ./synergy/ssp/src/driver/r_cgc/r_cgc.o
@@ -3093,35 +3110,35 @@ LOAD linker stubs
  .debug_line    0x00009dd1       0x61 ./src/synergy_gen/hal_data.o
  .debug_line    0x00009e32      0x431 ./src/synergy_gen/main.o
  .debug_line    0x0000a263      0x223 ./src/synergy_gen/pin_data.o
- .debug_line    0x0000a486      0x857 ./src/blinky_thread_entry.o
- .debug_line    0x0000acdd      0x25f C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_create.o)
- .debug_line    0x0000af3c       0xfd C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_get.o)
- .debug_line    0x0000b039       0xb5 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_put.o)
- .debug_line    0x0000b0ee      0x2da C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_thread_create.o)
- .debug_line    0x0000b3c8      0x167 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_initialize_high_level.o)
- .debug_line    0x0000b52f      0x108 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_initialize_kernel_enter.o)
- .debug_line    0x0000b637      0x16a C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_create.o)
- .debug_line    0x0000b7a1      0x219 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_get.o)
- .debug_line    0x0000b9ba      0x1c8 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_put.o)
- .debug_line    0x0000bb82      0x36c C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_create.o)
- .debug_line    0x0000beee      0x130 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_initialize.o)
- .debug_line    0x0000c01e      0x189 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_shell_entry.o)
- .debug_line    0x0000c1a7      0x224 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_preempt_check.o)
- .debug_line    0x0000c3cb      0x3de C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_resume.o)
- .debug_line    0x0000c7a9      0x3c0 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_suspend.o)
- .debug_line    0x0000cb69      0x13d C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_timeout.o)
- .debug_line    0x0000cca6      0x158 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_initialize.o)
- .debug_line    0x0000cdfe      0x164 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_system_activate.o)
- .debug_line    0x0000cf62      0x114 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_system_deactivate.o)
- .debug_line    0x0000d076      0x320 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_initialize_low_level.o)
- .debug_line    0x0000d396      0x403 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_schedule.o)
- .debug_line    0x0000d799       0xbc C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_stack_build.o)
- .debug_line    0x0000d855      0x2e2 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_interrupt.o)
- .debug_line    0x0000db37      0x1fb C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_cleanup.o)
- .debug_line    0x0000dd32      0x17f C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_time_slice.o)
- .debug_line    0x0000deb1      0x352 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_expiration_process.o)
+ .debug_line    0x0000a486     0x118e ./src/blinky_thread_entry.o
+ .debug_line    0x0000b614      0x25f C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_create.o)
+ .debug_line    0x0000b873       0xfd C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_get.o)
+ .debug_line    0x0000b970       0xb5 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_put.o)
+ .debug_line    0x0000ba25      0x2da C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_thread_create.o)
+ .debug_line    0x0000bcff      0x167 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_initialize_high_level.o)
+ .debug_line    0x0000be66      0x108 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_initialize_kernel_enter.o)
+ .debug_line    0x0000bf6e      0x16a C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_create.o)
+ .debug_line    0x0000c0d8      0x219 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_get.o)
+ .debug_line    0x0000c2f1      0x1c8 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_put.o)
+ .debug_line    0x0000c4b9      0x36c C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_create.o)
+ .debug_line    0x0000c825      0x130 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_initialize.o)
+ .debug_line    0x0000c955      0x189 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_shell_entry.o)
+ .debug_line    0x0000cade      0x224 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_preempt_check.o)
+ .debug_line    0x0000cd02      0x3de C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_resume.o)
+ .debug_line    0x0000d0e0      0x3c0 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_suspend.o)
+ .debug_line    0x0000d4a0      0x13d C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_timeout.o)
+ .debug_line    0x0000d5dd      0x158 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_initialize.o)
+ .debug_line    0x0000d735      0x164 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_system_activate.o)
+ .debug_line    0x0000d899      0x114 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_system_deactivate.o)
+ .debug_line    0x0000d9ad      0x320 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_initialize_low_level.o)
+ .debug_line    0x0000dccd      0x403 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_schedule.o)
+ .debug_line    0x0000e0d0       0xbc C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_stack_build.o)
+ .debug_line    0x0000e18c      0x2e2 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_interrupt.o)
+ .debug_line    0x0000e46e      0x1fb C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_cleanup.o)
+ .debug_line    0x0000e669      0x17f C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_time_slice.o)
+ .debug_line    0x0000e7e8      0x352 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_expiration_process.o)
 
-.debug_str      0x00000000     0xfd6b
+.debug_str      0x00000000     0xfe01
  .debug_str     0x00000000     0x8210 ./synergy/ssp/src/driver/r_ioport/r_ioport.o
                                0x83e4 (size before relaxing)
  .debug_str     0x00008210      0x43d ./synergy/ssp/src/driver/r_elc/r_elc.o
@@ -3172,62 +3189,62 @@ LOAD linker stubs
                                0x10b9 (size before relaxing)
  .debug_str     0x0000e4e3      0x1fc ./src/synergy_gen/pin_data.o
                                0x1e4f (size before relaxing)
- .debug_str     0x0000e6df       0xf7 ./src/blinky_thread_entry.o
-                               0x2d89 (size before relaxing)
- .debug_str     0x0000e7d6      0x273 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_create.o)
+ .debug_str     0x0000e6df      0x18d ./src/blinky_thread_entry.o
+                               0x3502 (size before relaxing)
+ .debug_str     0x0000e86c      0x273 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_create.o)
                                 0x9ee (size before relaxing)
- .debug_str     0x0000ea49       0x51 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_get.o)
+ .debug_str     0x0000eadf       0x51 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_get.o)
                                 0x8d9 (size before relaxing)
- .debug_str     0x0000ea9a       0x45 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_put.o)
+ .debug_str     0x0000eb30       0x45 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_put.o)
                                 0x899 (size before relaxing)
- .debug_str     0x0000eadf       0xdb C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_thread_create.o)
+ .debug_str     0x0000eb75       0xdb C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_thread_create.o)
                                 0x987 (size before relaxing)
- .debug_str     0x0000ebba      0x6aa C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_initialize_high_level.o)
+ .debug_str     0x0000ec50      0x6aa C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_initialize_high_level.o)
                                 0xf12 (size before relaxing)
- .debug_str     0x0000f264       0x69 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_initialize_kernel_enter.o)
+ .debug_str     0x0000f2fa       0x69 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_initialize_kernel_enter.o)
                                 0x27a (size before relaxing)
- .debug_str     0x0000f2cd       0x48 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_create.o)
+ .debug_str     0x0000f363       0x48 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_create.o)
                                 0x957 (size before relaxing)
- .debug_str     0x0000f315       0x73 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_get.o)
+ .debug_str     0x0000f3ab       0x73 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_get.o)
                                 0x968 (size before relaxing)
- .debug_str     0x0000f388       0x4b C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_put.o)
+ .debug_str     0x0000f41e       0x4b C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_put.o)
                                 0x94d (size before relaxing)
- .debug_str     0x0000f3d3       0x8a C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_create.o)
+ .debug_str     0x0000f469       0x8a C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_create.o)
                                 0x9cd (size before relaxing)
- .debug_str     0x0000f45d       0xf4 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_initialize.o)
+ .debug_str     0x0000f4f3       0xf4 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_initialize.o)
                                 0x917 (size before relaxing)
- .debug_str     0x0000f551       0x84 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_shell_entry.o)
+ .debug_str     0x0000f5e7       0x84 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_shell_entry.o)
                                 0x8ca (size before relaxing)
- .debug_str     0x0000f5d5       0x92 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_preempt_check.o)
+ .debug_str     0x0000f66b       0x92 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_preempt_check.o)
                                 0x959 (size before relaxing)
- .debug_str     0x0000f667       0x74 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_resume.o)
+ .debug_str     0x0000f6fd       0x74 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_resume.o)
                                 0x9fe (size before relaxing)
- .debug_str     0x0000f6db       0x84 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_suspend.o)
+ .debug_str     0x0000f771       0x84 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_suspend.o)
                                 0xa32 (size before relaxing)
- .debug_str     0x0000f75f       0x54 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_timeout.o)
+ .debug_str     0x0000f7f5       0x54 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_timeout.o)
                                 0x87f (size before relaxing)
- .debug_str     0x0000f7b3      0x1a3 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_initialize.o)
+ .debug_str     0x0000f849      0x1a3 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_initialize.o)
                                 0x471 (size before relaxing)
- .debug_str     0x0000f956       0x6a C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_system_activate.o)
+ .debug_str     0x0000f9ec       0x6a C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_system_activate.o)
                                 0x369 (size before relaxing)
- .debug_str     0x0000f9c0       0x3c C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_system_deactivate.o)
+ .debug_str     0x0000fa56       0x3c C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_system_deactivate.o)
                                 0x308 (size before relaxing)
- .debug_str     0x0000f9fc       0xed C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_initialize_low_level.o)
+ .debug_str     0x0000fa92       0xed C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_initialize_low_level.o)
                                 0x4c2 (size before relaxing)
- .debug_str     0x0000fae9       0xda C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_schedule.o)
+ .debug_str     0x0000fb7f       0xda C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_schedule.o)
                                0x18a7 (size before relaxing)
- .debug_str     0x0000fbc3       0x4c C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_stack_build.o)
+ .debug_str     0x0000fc59       0x4c C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_stack_build.o)
                                 0x7d2 (size before relaxing)
- .debug_str     0x0000fc0f       0x6f C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_interrupt.o)
+ .debug_str     0x0000fca5       0x6f C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_interrupt.o)
                                 0x94d (size before relaxing)
- .debug_str     0x0000fc7e       0x4c C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_cleanup.o)
+ .debug_str     0x0000fd14       0x4c C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_cleanup.o)
                                 0x969 (size before relaxing)
- .debug_str     0x0000fcca       0x36 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_time_slice.o)
+ .debug_str     0x0000fd60       0x36 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_time_slice.o)
                                 0x8b4 (size before relaxing)
- .debug_str     0x0000fd00       0x6b C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_expiration_process.o)
+ .debug_str     0x0000fd96       0x6b C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_expiration_process.o)
                                 0x44e (size before relaxing)
 
-.debug_frame    0x00000000     0x2298
+.debug_frame    0x00000000     0x230c
  .debug_frame   0x00000000      0x284 ./synergy/ssp/src/driver/r_ioport/r_ioport.o
  .debug_frame   0x00000284       0xa0 ./synergy/ssp/src/driver/r_elc/r_elc.o
  .debug_frame   0x00000324      0x48c ./synergy/ssp/src/driver/r_cgc/r_cgc.o
@@ -3250,64 +3267,64 @@ LOAD linker stubs
  .debug_frame   0x00000e0c       0x20 ./src/synergy_gen/common_data.o
  .debug_frame   0x00000e2c       0x20 ./src/synergy_gen/hal_data.o
  .debug_frame   0x00000e4c       0x80 ./src/synergy_gen/main.o
- .debug_frame   0x00000ecc      0x110 ./src/blinky_thread_entry.o
- .debug_frame   0x00000fdc       0x3c C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_create.o)
- .debug_frame   0x00001018       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_get.o)
- .debug_frame   0x00001038       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_put.o)
- .debug_frame   0x00001058       0x58 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_thread_create.o)
- .debug_frame   0x000010b0       0x2c C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_initialize_high_level.o)
- .debug_frame   0x000010dc       0x2c C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_initialize_kernel_enter.o)
- .debug_frame   0x00001108       0x30 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_create.o)
- .debug_frame   0x00001138       0x30 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_get.o)
- .debug_frame   0x00001168       0x2c C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_put.o)
- .debug_frame   0x00001194       0x38 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_create.o)
- .debug_frame   0x000011cc       0x28 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_initialize.o)
- .debug_frame   0x000011f4       0x2c C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_shell_entry.o)
- .debug_frame   0x00001220       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_preempt_check.o)
- .debug_frame   0x00001240       0x30 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_resume.o)
- .debug_frame   0x00001270       0x30 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_suspend.o)
- .debug_frame   0x000012a0       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_timeout.o)
- .debug_frame   0x000012c0       0x28 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_initialize.o)
- .debug_frame   0x000012e8       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_system_activate.o)
- .debug_frame   0x00001308       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_system_deactivate.o)
- .debug_frame   0x00001328       0x2c C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_initialize_low_level.o)
- .debug_frame   0x00001354       0x64 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_schedule.o)
- .debug_frame   0x000013b8       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_stack_build.o)
- .debug_frame   0x000013d8       0x28 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_interrupt.o)
- .debug_frame   0x00001400       0x28 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_cleanup.o)
- .debug_frame   0x00001428       0x30 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_time_slice.o)
- .debug_frame   0x00001458       0x40 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_expiration_process.o)
- .debug_frame   0x00001498       0x20 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-errno.o)
- .debug_frame   0x000014b8       0x28 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-memcpy-stub.o)
- .debug_frame   0x000014e0       0x20 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-memset.o)
- .debug_frame   0x00001500       0x44 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-rand.o)
- .debug_frame   0x00001544       0x40 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-assert.o)
- .debug_frame   0x00001584       0x64 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-fprintf.o)
- .debug_frame   0x000015e8       0x30 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-malloc.o)
- .debug_frame   0x00001618       0x38 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-nano-freer.o)
- .debug_frame   0x00001650       0x4c c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-nano-mallocr.o)
- .debug_frame   0x0000169c       0xac c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-nano-vfprintf.o)
- .debug_frame   0x00001748       0x60 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-nano-vfprintf_i.o)
- .debug_frame   0x000017a8       0x2c c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-sbrkr.o)
- .debug_frame   0x000017d4       0x40 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-wbuf.o)
- .debug_frame   0x00001814       0x2c c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-wsetup.o)
- .debug_frame   0x00001840       0x28 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-abort.o)
- .debug_frame   0x00001868       0x5c c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-fflush.o)
- .debug_frame   0x000018c4      0x14c c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-findfp.o)
- .debug_frame   0x00001a10       0x54 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-fwalk.o)
- .debug_frame   0x00001a64       0xb0 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-lock.o)
- .debug_frame   0x00001b14       0x58 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-makebuf.o)
- .debug_frame   0x00001b6c       0x30 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-mlock.o)
- .debug_frame   0x00001b9c       0x5c c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-reent.o)
- .debug_frame   0x00001bf8       0xcc c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-signal.o)
- .debug_frame   0x00001cc4       0x3c c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-signalr.o)
- .debug_frame   0x00001d00       0x88 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-stdio.o)
- .debug_frame   0x00001d88       0x2c c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-writer.o)
- .debug_frame   0x00001db4       0x2c c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-closer.o)
- .debug_frame   0x00001de0       0x2c c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-fstatr.o)
- .debug_frame   0x00001e0c       0x2c c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-isattyr.o)
- .debug_frame   0x00001e38       0x2c c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-lseekr.o)
- .debug_frame   0x00001e64       0x2c c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-readr.o)
- .debug_frame   0x00001e90      0x3a0 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-syscalls.o)
- .debug_frame   0x00002230       0x28 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-_exit.o)
- .debug_frame   0x00002258       0x40 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-_kill.o)
+ .debug_frame   0x00000ecc      0x184 ./src/blinky_thread_entry.o
+ .debug_frame   0x00001050       0x3c C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_create.o)
+ .debug_frame   0x0000108c       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_get.o)
+ .debug_frame   0x000010ac       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_semaphore_put.o)
+ .debug_frame   0x000010cc       0x58 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(txe_thread_create.o)
+ .debug_frame   0x00001124       0x2c C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_initialize_high_level.o)
+ .debug_frame   0x00001150       0x2c C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_initialize_kernel_enter.o)
+ .debug_frame   0x0000117c       0x30 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_create.o)
+ .debug_frame   0x000011ac       0x30 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_get.o)
+ .debug_frame   0x000011dc       0x2c C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_put.o)
+ .debug_frame   0x00001208       0x38 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_create.o)
+ .debug_frame   0x00001240       0x28 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_initialize.o)
+ .debug_frame   0x00001268       0x2c C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_shell_entry.o)
+ .debug_frame   0x00001294       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_preempt_check.o)
+ .debug_frame   0x000012b4       0x30 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_resume.o)
+ .debug_frame   0x000012e4       0x30 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_system_suspend.o)
+ .debug_frame   0x00001314       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_timeout.o)
+ .debug_frame   0x00001334       0x28 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_initialize.o)
+ .debug_frame   0x0000135c       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_system_activate.o)
+ .debug_frame   0x0000137c       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_system_deactivate.o)
+ .debug_frame   0x0000139c       0x2c C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_initialize_low_level.o)
+ .debug_frame   0x000013c8       0x64 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_schedule.o)
+ .debug_frame   0x0000142c       0x20 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_stack_build.o)
+ .debug_frame   0x0000144c       0x28 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_interrupt.o)
+ .debug_frame   0x00001474       0x28 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_semaphore_cleanup.o)
+ .debug_frame   0x0000149c       0x30 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_thread_time_slice.o)
+ .debug_frame   0x000014cc       0x40 C:\Users\iones\e2_studio\workspace\Blinky_SK_S7G2\synergy\ssp\src\framework\el\tx\cm4_gcc\libtx.a(tx_timer_expiration_process.o)
+ .debug_frame   0x0000150c       0x20 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-errno.o)
+ .debug_frame   0x0000152c       0x28 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-memcpy-stub.o)
+ .debug_frame   0x00001554       0x20 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-memset.o)
+ .debug_frame   0x00001574       0x44 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-rand.o)
+ .debug_frame   0x000015b8       0x40 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-assert.o)
+ .debug_frame   0x000015f8       0x64 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-fprintf.o)
+ .debug_frame   0x0000165c       0x30 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-malloc.o)
+ .debug_frame   0x0000168c       0x38 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-nano-freer.o)
+ .debug_frame   0x000016c4       0x4c c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-nano-mallocr.o)
+ .debug_frame   0x00001710       0xac c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-nano-vfprintf.o)
+ .debug_frame   0x000017bc       0x60 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-nano-vfprintf_i.o)
+ .debug_frame   0x0000181c       0x2c c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-sbrkr.o)
+ .debug_frame   0x00001848       0x40 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-wbuf.o)
+ .debug_frame   0x00001888       0x2c c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-wsetup.o)
+ .debug_frame   0x000018b4       0x28 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-abort.o)
+ .debug_frame   0x000018dc       0x5c c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-fflush.o)
+ .debug_frame   0x00001938      0x14c c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-findfp.o)
+ .debug_frame   0x00001a84       0x54 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-fwalk.o)
+ .debug_frame   0x00001ad8       0xb0 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-lock.o)
+ .debug_frame   0x00001b88       0x58 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-makebuf.o)
+ .debug_frame   0x00001be0       0x30 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-mlock.o)
+ .debug_frame   0x00001c10       0x5c c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-reent.o)
+ .debug_frame   0x00001c6c       0xcc c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-signal.o)
+ .debug_frame   0x00001d38       0x3c c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-signalr.o)
+ .debug_frame   0x00001d74       0x88 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-stdio.o)
+ .debug_frame   0x00001dfc       0x2c c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-writer.o)
+ .debug_frame   0x00001e28       0x2c c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-closer.o)
+ .debug_frame   0x00001e54       0x2c c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-fstatr.o)
+ .debug_frame   0x00001e80       0x2c c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-isattyr.o)
+ .debug_frame   0x00001eac       0x2c c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-lseekr.o)
+ .debug_frame   0x00001ed8       0x2c c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(lib_a-readr.o)
+ .debug_frame   0x00001f04      0x3a0 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-syscalls.o)
+ .debug_frame   0x000022a4       0x28 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-_exit.o)
+ .debug_frame   0x000022cc       0x40 c:/renesas/synergy/e2studio_v2024-01.1_ssp_v2.6.1/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\librdimon_nano.a(rdimon-_kill.o)

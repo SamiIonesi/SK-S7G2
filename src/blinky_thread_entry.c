@@ -318,10 +318,10 @@ void simon_says(void)
 
             while (sequence_length <= MAX_SEQUENCE_LENGTH && !game_over)
             {
-                // 1 second pause before displaying the sequence
+                // 1. second pause before displaying the sequence
                 R_BSP_SoftwareDelay(1, BSP_DELAY_UNITS_SECONDS);
 
-                // Display sequence
+                // 2. Display sequence
                 for (int i = 0; i < sequence_length; i++)
                 {
                     if (sequence[i] == 0)
@@ -341,7 +341,7 @@ void simon_says(void)
                     R_BSP_SoftwareDelay(200, BSP_DELAY_UNITS_MILLISECONDS);
                 }
 
-                // Check user response
+                // 3. Check user response
                 user_input_index = 0;
                 while (user_input_index < sequence_length && !game_over)
                 {
