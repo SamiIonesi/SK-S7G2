@@ -83,3 +83,6 @@ At each level, a random sequence of 5 elements is generated, each element in the
 
 ### Video
 At this [link](https://youtu.be/Gh948Cs0SxA) you can see how the game 3 works.
+
+## Code
+You can find the source code for the games at this [link](https://github.com/SamiIonesi/SK-S7G2/blob/master/src/blinky_thread_entry.c).
